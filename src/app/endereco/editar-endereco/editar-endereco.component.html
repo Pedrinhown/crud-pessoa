@@ -1,0 +1,106 @@
+<h1>Novo Endereço</h1>
+<div class="well">
+    <form #formEndereco="ngForm">
+        <div class="form-group">
+            <label for="rua">Rua:</label>
+            <input type="text" class="form-control" id="rua" name="rua" [(ngModel)]="endereco.rua" #rua="ngModel"
+                minlength="2" required>
+            <div *ngIf="rua.errors && (rua.dirty || rua.touched)" class="alert alert-danger">
+                <div [hidden]="!rua.errors['required']">
+                    Digite a rua do endereco.
+                </div>
+                <div [hidden]="!rua.errors['minlength']">
+                    A rua deve conter ao menos 2 caracteres.
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <label for="rua">Número:</label>
+            <input type="text" class="form-control" id="numero" name="numero" [(ngModel)]="endereco.numero"
+                #numero="ngModel" required>
+            <div *ngIf="numero.errors && (numero.dirty || numero.touched)" class="alert alert-danger">
+                <div [hidden]="numero.errors && ! numero.errors['required']">
+                    Digite o número do endereco.
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <label for="rua">Complemento:</label>
+            <input type="text" class="form-control" id="complemento" name="complemento"
+                [(ngModel)]="endereco.complemento" #complemento="ngModel" required>
+            <div *ngIf="complemento.errors && (complemento.dirty || complemento.touched)" class="alert alert-danger">
+                <div [hidden]="complemento.errors && ! complemento.errors['required']">
+                    Digite o complemento do endereco.
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <label for="rua">Bairro:</label>
+            <input type="text" class="form-control" id="bairro" name="bairro" [(ngModel)]="endereco.bairro"
+                #bairro="ngModel" required>
+            <div *ngIf="bairro.errors && (bairro.dirty || bairro.touched)" class="alert alert-danger">
+                <div [hidden]="bairro.errors && ! bairro.errors['required']">
+                    Digite o bairro do endereco.
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <label for="rua">CEP:</label>
+            <input type="text" class="form-control" id="cep" name="cep" [(ngModel)]="endereco.cep" #cep="ngModel"
+                required>
+            <div *ngIf="cep.errors && (cep.dirty || cep.touched)" class="alert alert-danger">
+                <div [hidden]="cep.errors && ! cep.errors['required']">
+                    Digite o CEP do endereco.
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <label for="rua">Cidade:</label>
+            <input type="text" class="form-control" id="cidade" name="cidade" [(ngModel)]="endereco.cidade"
+                #cidade="ngModel" required>
+            <div *ngIf="cidade.errors && (cidade.dirty || cidade.touched)" class="alert alert-danger">
+                <div [hidden]="cidade.errors && ! cidade.errors['required']">
+                    Digite a cidade do endereco.
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <label for="rua">Estado:</label>
+            <input type="text" class="form-control" id="estado" name="estado" [(ngModel)]="endereco.estado"
+                #estado="ngModel" required>
+            <div *ngIf="estado.errors && (estado.dirty || estado.touched)" class="alert alert-danger">
+                <div [hidden]="estado.errors && ! estado.errors['required']">
+                    Digite o estado do endereco.
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" (click)="atualizar()" [disabled]="!formEndereco.form.valid">
+                <i class="fa fa-save" aria-hidden="true"></i> Salvar
+            </button>
+
+            <a class="btn btn-secondary" href="/enderecos">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar </a>
+
+        </div>
+
+
+    </form>
+</div>
